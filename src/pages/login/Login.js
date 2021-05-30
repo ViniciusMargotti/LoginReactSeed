@@ -76,7 +76,7 @@ const Login = () => {
                                         style={{marginTop: '0.8rem'}}
                                         label="E-mail"
                                         type={"email"}
-                                        variant="filled"
+                                        variant="outlined"
                                         value={value}
                                         onChange={onChange}
                                         error={!!error}
@@ -97,7 +97,7 @@ const Login = () => {
                                         style={{marginTop: '0.8rem'}}
                                         label="Senha"
                                         minLength={"5"}
-                                        variant="filled"
+                                        variant="outlined"
                                         value={value}
                                         onChange={onChange}
                                         error={!!error}
