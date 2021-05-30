@@ -1,52 +1,22 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import {Form} from 'formik'
-import API from "./../../api/api";
 
 import './Login.css'
 import {Button, Container, CssBaseline, makeStyles, TextField} from "@material-ui/core";
 
 import {useForm, Controller} from 'react-hook-form';
-import api from "./../../api/api";
-import { history } from '../../history'
 
-import { store } from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css'
+import {Context} from '../../contexts/authContext'
 
 const Login = () => {
+
+    const {authenticated, handleLogin} = useContext(Context);
 
     const {handleSubmit, control} = useForm();
 
     const onSubmit = values => {
-        API.post('http://localhost:8090/authenticate', values)
-            .then((resp) => {
-
-                if(!resp){
-                    return;
-                }
-
-                const {data} = resp
-
-                if (data) {
-                    api.defaults.headers.common['Authorization'] = 'Bearer '+data.token;
-                }
-
-                history.push('/');
-
-            }).catch((error)=>{
-
-            store.addNotification({
-                title: 'Atenção',
-                message: error.message,
-                type: 'danger',                         // 'default', 'success', 'info', 'warning'
-                container: 'top-right',                // where to position the notifications
-                animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
-                animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
-                dismiss: {
-                    duration: 3000
-                }
-            });
-            });
+        handleLogin(values);
     };
 
     const useStyles = makeStyles((theme) => ({

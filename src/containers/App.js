@@ -4,14 +4,17 @@ import Routes from '../components/Routes'
 
 import './App.css'
 import ReactNotification from "react-notifications-component";
+import {AuthProvider} from "../contexts/authContext";
 
 const App = () => (
-    <div  className = "app-container">
-     < ReactNotification/>
-     <main className="App">
-     <Routes/>
-    </main>
-    < / div >
+    <AuthProvider>
+        <div className="app-container">
+            < ReactNotification/>
+            <main className="App">
+                <Routes/>
+            </main>
+        </div>
+    </AuthProvider>
 )
 
 export default App
