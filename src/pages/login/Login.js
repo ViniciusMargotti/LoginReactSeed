@@ -119,7 +119,7 @@ const Login = () => {
                 <Divider style={{width:'60%',margin:'auto'}} light />
                 <div style={{textAlign:'center',width: '100%'}}>
                     <Typography variant="subtitle2" color={'textSecondary'}>
-                        Copyright © Next Fit 2021
+                        Copyright © Vinícius Margotti 2021
                     </Typography>
                 </div>
             </Grid>
